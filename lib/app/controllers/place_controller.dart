@@ -26,9 +26,7 @@ class PlaceController extends GetxController {
         //
       } else {
         // load berhasil
-        dataPlace = Place.fromJson(jsonDecode(response.body));
-
-        print('load master krs berhasil');
+        dataPlace = PlaceModel.fromJson(jsonDecode(response.body));
       }
       isLoading.value = false;
     }

@@ -1,15 +1,16 @@
 // To parse this JSON data, do
 //
-//     final place = placeFromJson(jsonString);
+//     final placeModel = placeModelFromJson(jsonString);
 
 import 'dart:convert';
 
-Place placeFromJson(String str) => Place.fromJson(json.decode(str));
+PlaceModel placeModelFromJson(String str) =>
+    PlaceModel.fromJson(json.decode(str));
 
-String placeToJson(Place data) => json.encode(data.toJson());
+String placeModelToJson(PlaceModel data) => json.encode(data.toJson());
 
-class Place {
-  Place({
+class PlaceModel {
+  PlaceModel({
     required this.statusCode,
     required this.message,
     required this.data,
@@ -19,7 +20,7 @@ class Place {
   String message;
   Data data;
 
-  factory Place.fromJson(Map<String, dynamic> json) => Place(
+  factory PlaceModel.fromJson(Map<String, dynamic> json) => PlaceModel(
         statusCode: json["status_code"],
         message: json["message"],
         data: Data.fromJson(json["data"]),

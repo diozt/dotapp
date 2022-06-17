@@ -60,15 +60,15 @@ class AuthController extends GetxController {
     }
   }
 
-  // // logout
-  // logout() async {
-  //   await box.remove('dataUser');
-  //   errorMsg.value = false;
-  //   nimC.clear();
-  //   passC.clear();
-  //   // Get.offAllNamed(RoutName.login);
-  // }
-  // // end logout
+  // logout
+  logout() async {
+    await box.remove('dataUser');
+    errorMsg.value = false;
+    email.clear();
+    pass.clear();
+    // Get.offAllNamed(RoutName.login);
+  }
+  // end logout
 
   @override
   void onInit() {
