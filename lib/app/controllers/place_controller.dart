@@ -13,10 +13,24 @@ class PlaceController extends GetxController {
   void onInit() async {
     // TODO: implement onInit
     super.onInit();
+
     // karena tidak url dicontoh langsung berupa JSON tanpa parameter, dapat menggunakan get
     var response =
         await http.get(Uri.parse(ApiData.mainUrl + ApiData.placeURL));
 
-    dataPlace = Place.fromJson(jsonDecode(response.body));
+    // print(response.body);
+    if (response.statusCode == 200) {
+      var user = jsonDecode(response.body);
+
+      if (user['error'] == true) {
+        //
+      } else {
+        // load berhasil
+        dataPlace = Place.fromJson(jsonDecode(response.body));
+
+        print('load master krs berhasil');
+      }
+      isLoading.value = false;
+    }
   }
 }
